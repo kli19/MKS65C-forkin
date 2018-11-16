@@ -4,16 +4,6 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-void forking(int f){
-  if (f == -1) {
-    printf("error");
-  } else if(f) {
-    printf("Parent of %i pid: %i ppid: %i\n", f, getpid(), getppid());
-  } else {
-    printf("I am a child pid: %i ppid: %i\n\n", getpid(), getppid());
-  }
-}
-
 
 int rand_num(){
   int random_data = open("/dev/random", O_RDONLY);
@@ -33,20 +23,17 @@ int rand_num(){
 
 
 int main(){
-  printf("%d\n", rand_num());
-  printf("%d\n", rand_num());
-  printf("%d\n", rand_num());
-  printf("%d\n", rand_num());
-  /*
-  int a = fork();
-  forking(a);
+  
+  int f = fork();
 
-  int b = fork();
-  forking(b);
-
-  int c = fork();
-  forking(c);
-  */
+    if (f == -1) {
+    printf("error");
+  } else if(f) {
+    printf("Parent of %i pid: %i ppid: %i\n", f, getpid(), getppid());
+    //f=fork();
+  } else {
+    printf("I am a child pid: %i ppid: %i\n\n", getpid(), getppid());
+  }
 
   return 0;
 }
