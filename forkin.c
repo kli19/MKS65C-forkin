@@ -27,15 +27,15 @@ int main(){
     fork();
   }
   if(id!=getpid()){
-    printf("I am a sleepy child pid: %i ppid: %i\n\n", getpid(), getppid());
-    int nap_time =  5;
+    printf("I am a sleepy child pid: %i ppid: %i\n", getpid(), getppid());
+    int nap_time = rand_num();
     sleep(nap_time);
     printf("Sleepy child is awake now\n");
     return nap_time;
   }
   int status;
   int sleepy_child = wait(&status);
-  int sec = WEXITSTATUS(sleepy_child);
+  int sec = WEXITSTATUS(status);
   printf("My sleepy child %d slept for %d seconds\n", sleepy_child, sec);
 
   return 0;
