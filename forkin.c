@@ -17,7 +17,8 @@ int rand_num(){
 }
 int main(){
   
-  int f = fork();
+  int f = getpid();
+  fork();
 
   if (f == -1) {
     printf("error");
