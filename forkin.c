@@ -17,16 +17,16 @@ int rand_num(){
 }
 int main(){
   
-  int f = getpid();
+  int id = getpid();
   fork();
 
-  if (f == -1) {
+  if (id == -1) {
     printf("error");
   }
-  if(f==getpid()) {
+  if(id==getpid()) {
     fork();
   }
-  if(f!=getpid()){
+  if(id!=getpid()){
     printf("I am a sleepy child pid: %i ppid: %i\n\n", getpid(), getppid());
     int nap_time =  5;
     sleep(nap_time);
