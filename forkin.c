@@ -22,12 +22,12 @@ int main(){
   if (f == -1) {
     printf("error");
   }
-  if(f) {
+  if(f==getpid()) {
     fork();
   }
-  if(f==0){
+  if(f!=getpid()){
     printf("I am a sleepy child pid: %i ppid: %i\n\n", getpid(), getppid());
-    int nap_time =  2;
+    int nap_time =  5;
     sleep(nap_time);
     printf("Sleepy child is awake now\n");
     return nap_time;
@@ -36,6 +36,6 @@ int main(){
   int sleepy_child = wait(&status);
   int sec = WEXITSTATUS(sleepy_child);
   printf("My sleepy child %d slept for %d seconds\n", sleepy_child, sec);
-  
+
   return 0;
 }
