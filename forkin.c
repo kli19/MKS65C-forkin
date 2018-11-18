@@ -40,6 +40,8 @@ int main(){
     int nap_time = rand_num();
     sleep(nap_time);
     printf("Sleepy child is awake now\n");
+
+    //child process returns number of seconds slept
     return nap_time;
   }
 
