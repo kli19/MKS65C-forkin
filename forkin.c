@@ -35,8 +35,8 @@ int main(){
   }
   int status;
   int sleepy_child = wait(&status);
-  int sec = WEXITSTATUS(status);
-  printf("My sleepy child %d slept for %d seconds\n", sleepy_child, sec);
+  int seconds = WEXITSTATUS(status);
+  printf("My sleepy child %d slept for %d seconds\n", sleepy_child, seconds);
 
   return 0;
 }
